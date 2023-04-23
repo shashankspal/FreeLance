@@ -1,0 +1,41 @@
+1a. Representation of the solution using BFS:
+The algorithm starts by initializing the root node with an empty solution, a profit of 0, a weight of 0,
+and an upper bound on the profit obtained using a greedy algorithm. The algorithm then explores the search tree by branching on each item.
+For each item, two child nodes are generated: one where the item is selected, and one where the item is not selected.
+The child nodes inherit the profit, weight, and next item index from the parent node, and update them accordingly based
+on whether the item is selected or not. The upper bound of each child node is computed using a greedy algorithm.
+The algorithm prunes a node if its upper bound is less than the current best solution. The algorithm terminates when all nodes have
+been explored or pruned.
+
+1b. Equation of objective function
+ maximize sigma(i=1 to n) v[i] * x[i]
+such that:
+    sigma(i=1 to n) w[i] * x[i] ≤ W
+    x[i] element of {0, 1} for all i = 1, 2, ..., n
+where
+n=number of items
+v[i]: profit of item i
+x[i]: 1 if item i is taken 0 if not taken
+w[i]: weight of item i
+W: capacity of knapsack
+
+1c. equation for the restriction:
+sigma(i=1 to n) w[i] * x[i] ≤ W
+x[i] element of {0, 1} for all i = 1, 2, ..., n
+
+where
+n=number of items
+x[i]: 1 if item i is taken 0 if not taken
+w[i]: weight of item i
+W: capacity of knapsack
+
+2a. Comparison of the time expended by the algorithms:
+BFS: the worst case time complexity is O(2^n) where n is the number of items. This occurs when the search tree is fully explored.
+However, the actual running time of the algorithm depends on the quality of the upper bound used and the pruning strategies
+applied during the search.
+
+DFS using memoization: The worst case time complexity is O(n * W) where n is the number of items and W is the weight of knapsack
+
+2b. Comparison of the space used in memory at a time by the algorithms:
+BFS: Worst case O(n) space. It happens when the tree is fully explored
+DFS: O(n * W)
